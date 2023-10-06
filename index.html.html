@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <title>Suma de Frutas</title>
+    <style>
+        
+         body {
+            background-image: url('fondofr.png'); /* Reemplaza con la ruta de tu imagen de fondo */
+            background-size: cover; /* Ajusta el tamaño de la imagen para cubrir toda la ventana */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            background-attachment: fixed; /* Fija la imagen en su posición */
+        }
+        
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 50px;
+            border: 1px solid #ccc;
+            background-color: ;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+        }
+        .apple-block {
+            display: inline-block;
+            vertical-align: top;
+            margin: 0px;
+        }
+        img {
+            max-width: 130px;
+            height: auto;
+        }
+        .result-message {
+            font-weight: bold;
+            font-size: 27px;
+            margin-top: 40px;
+        }
+        .happy-face, .sad-face {
+            font-size: 40px;
+        }
+            #formulario {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 0 auto;
+            width: 400px;
+            box-shadow: 0px 0px 10px #999;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        button {
+            display: block;
+            margin: 40px auto;
+            padding: 15px 25px;
+            background-color: palevioletred;
+            font-size: 24px;
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<style>
+    body {
+        font-size: 24px; /* Cambia el valor a tu preferencia */
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>Suma de FRUTAS</h1>
+
+        <button id="generar">Generar</button>
+
+        <script>
+            var num1, num2, resultado;
+
+            function generarNumeros() {
+                // Generar dos números aleatorios entre 1 y 10
+                num1 = Math.floor(Math.random() * 10) + 1;
+                num2 = Math.floor(Math.random() * 10) + 1;
+                
+                // Calcular la suma de los números
+                resultado = num1 + num2;
+
+                // Mostrar números y manzanas
+                mostrarNumerosYManzanas();
+            }
+
+            function mostrarNumerosYManzanas() {
+                var num1Element = document.getElementById("num1");
+                var num2Element = document.getElementById("num2");
+                var appleBlockA = document.getElementById("apple-block-a");
+                var appleBlockB = document.getElementById("apple-block-b");
+
+                
+                appleBlockA.innerHTML = '';
+                appleBlockB.innerHTML = '';
+
+                for (var i = 0; i < num1; i++) {
+                    appleBlockA.innerHTML += '<img src="MANGO.png" alt="MANGO">';
+                }
+
+                for (var j = 0; j < num2; j++) {
+                    appleBlockB.innerHTML += '<img src="mandarina.png" alt="Mandarina">';
+                }
+            }
+
+            function verificarResultado() {
+                var respuestaInput = document.getElementById("respuesta");
+                var resultMessage = document.getElementById("result-message");
+                var respuesta = parseInt(respuestaInput.value);
+
+                // Verificar si la respuesta es correcta
+                if (respuesta === resultado) {
+                    resultMessage.innerHTML = '&#128522; Respuesta Correcta';
+                } else {
+                    resultMessage.innerHTML = '&#128577; Respuesta Incorrecta';
+                }
+            }
+
+            // Asociar la función de generar números al botón "Generar"
+            var generarButton = document.getElementById("generar");
+            generarButton.addEventListener("click", generarNumeros);
+        </script>
+
+        <div class="apple-block">
+            <h2></h2>
+            <label for="sumandoA"> Mango <span id="num1"></span></label>
+            <div id="apple-block-a"></div>
+        </div>
+
+        <div class="apple-block">
+            <h2></h2>
+            <label for="sumandoB"> Mandarina<span id="num2"></span></label>
+            <div id="apple-block-b"></div>
+        </div>
+
+        <form>
+            <label for="respuesta">Ingresa la suma :</label>
+            <input type="number" id="respuesta" required>
+            <button type="button" onclick="verificarResultado()">Verificar</button>
+        </form>
+
+        <div class="result-message" id="result-message"></div>
+        <center> </center>
+    </div>Desarrollado por: "NOELI LOENARDO LIZANA
+</body>
+</html>
